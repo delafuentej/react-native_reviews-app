@@ -1,39 +1,28 @@
 import React, {useState, useEffect} from 'react';
+
 import * as Font from 'expo-font';
 import  * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
-// import  createDrawerNavigator from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { enableScreens } from 'react-native-screens';
+import 'react-native-gesture-handler';
 
 
 import Home from './screens/home';
 import Details from './screens/details';
 import About from './screens/about';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import HeaderCustom from './shared/headerCustom';
+
 
 
 
 //to improve performance
 enableScreens();
 
-const HomeStack= createStackNavigator();
-const Drawer = createDrawerNavigator();
-
-const HomeStackScreen=()=>{
-  return(
-    <HomeStack.Navigator initialRouteName="Home">
-          <HomeStack.Screen  name="GameZone" component={Home} />
-          <HomeStack.Screen  name="Details" component={Details} />
-    </HomeStack.Navigator>
-
-  )
-}
-
-
 //to prevent the splash-screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
-
+// google-fonts 
 const getFonts =()=> Font.loadAsync({
     'roboto-black': require('./assets/fonts/Roboto-Black.ttf'),
     'roboto-bold': require('./assets/fonts/Roboto-Black.ttf'),
@@ -43,6 +32,58 @@ const getFonts =()=> Font.loadAsync({
  
   });
 
+const HomeStack= createStackNavigator();
+
+
+const HomeStackScreen=()=>{
+  return(
+    <HomeStack.Navigator  initialRouteName="Home">
+          <HomeStack.Screen  
+            name="GameZone" 
+            component={Home}
+            //  options={{
+            //    header: (props) => <HeaderCustom {...props} />
+            //  }}
+            />
+          <HomeStack.Screen  
+            name="Details" 
+            component={Details} 
+            // options={{
+            //   header: () => <HeaderCustom />
+            // }}
+            />
+    </HomeStack.Navigator>
+
+  )
+}
+const Drawer = createDrawerNavigator();
+
+const DrawerNavigator=()=>{
+  return(
+    <Drawer.Navigator 
+      initialRouteName='HomeStack'
+      screenOptions={{
+                drawerStyle: {
+                  marginTop:60,
+                  flexDirection:'column',
+                  alignItems:'center',
+                  alignContent:'center',
+                  width:'100%',
+                  height: '100%',
+                  backgroundColor: '#69a',
+                 
+                },
+               drawerLabelStyle: {
+                  color:'white',
+                 
+                },
+            }}
+      >
+      <Drawer.Screen name='Home' component={HomeStackScreen} />
+      <Drawer.Screen name='About' component={About} />
+    </Drawer.Navigator>
+  )
+}
 
 
 export default function App() {
@@ -70,10 +111,7 @@ export default function App() {
   }else{
     return (
       <NavigationContainer >
-        <Drawer.Navigator initialRouteName='HomeStack'>
-          <Drawer.Screen name='Home' component={HomeStackScreen} />
-          <Drawer.Screen name='About' component={About} />
-        </Drawer.Navigator>
+        <DrawerNavigator/>
       </NavigationContainer>
     
   )
