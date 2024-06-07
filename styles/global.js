@@ -6,6 +6,11 @@ export const globalStyles= StyleSheet.create({
         padding:20,
        
     },
+    header: {
+        backgroundColor: '#69a',
+        color:'white',
+
+    },
     title:{
         fontFamily:'roboto-black',
         fontSize:18,
@@ -29,7 +34,7 @@ export const globalStyles= StyleSheet.create({
         color: '#fff',
     },
     reviewBodyText: {
-        
+
 
     },
     reviewRating : {

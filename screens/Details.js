@@ -3,8 +3,10 @@ import {  Text, View, Pressable } from 'react-native';
 import { globalStyles } from '../styles/global';
 
 export default function Details({navigation, route}){
+
     const {title,rating, body} = route.params;
-    console.log('title', title)
+
+   
     const pressHandler=()=>{
         navigation.goBack();
     }

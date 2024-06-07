@@ -15,7 +15,7 @@ export default function Home({navigation}){
     ])
 
     const pressHandler=()=>{
-        navigation.navigate('Details');
+        navigation.push('Details');
     }
     return(
         <View style={globalStyles.container}>

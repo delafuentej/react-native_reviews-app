@@ -3,16 +3,32 @@ import * as Font from 'expo-font';
 import  * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack';
+// import  createDrawerNavigator from '@react-navigation/drawer';
 import { enableScreens } from 'react-native-screens';
+
 
 import Home from './screens/home';
 import Details from './screens/details';
 import About from './screens/about';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
+
 
 //to improve performance
 enableScreens();
 
-const Stack= createStackNavigator();
+const HomeStack= createStackNavigator();
+const Drawer = createDrawerNavigator();
+
+const HomeStackScreen=()=>{
+  return(
+    <HomeStack.Navigator initialRouteName="Home">
+          <HomeStack.Screen  name="GameZone" component={Home} />
+          <HomeStack.Screen  name="Details" component={Details} />
+    </HomeStack.Navigator>
+
+  )
+}
 
 
 //to prevent the splash-screen from auto-hiding
@@ -53,11 +69,11 @@ export default function App() {
     return null;
   }else{
     return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={Home}/>
-          <Stack.Screen name="Details" component={Details} />
-        </Stack.Navigator>
+      <NavigationContainer >
+        <Drawer.Navigator initialRouteName='HomeStack'>
+          <Drawer.Screen name='Home' component={HomeStackScreen} />
+          <Drawer.Screen name='About' component={About} />
+        </Drawer.Navigator>
       </NavigationContainer>
     
   )
