@@ -2,13 +2,17 @@ import React from 'react';
 import {  Text, View, Pressable } from 'react-native';
 import { globalStyles } from '../styles/global';
 
-export default function Details({navigation}){
+export default function Details({navigation, route}){
+    const {title,rating, body} = route.params;
+    console.log('title', title)
     const pressHandler=()=>{
         navigation.goBack();
     }
     return(
         <View style={globalStyles.container}>
-            <Text style={globalStyles.title}>Details</Text>
+            <Text style={globalStyles.title}>{title}</Text>
+            <Text style={globalStyles.reviewBodyText}>{body}</Text>
+            <Text style={globalStyles.reviewRating}>{rating}</Text>
             <Pressable 
                 onPress={pressHandler}
                 style={({pressed})=>[

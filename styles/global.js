@@ -27,6 +27,13 @@ export const globalStyles= StyleSheet.create({
         textTransform: 'uppercase',
         fontFamily:'roboto-bold',
         color: '#fff',
+    },
+    reviewBodyText: {
+        
+
+    },
+    reviewRating : {
+
     }
 
 
