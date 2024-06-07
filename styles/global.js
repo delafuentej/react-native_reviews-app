@@ -15,6 +15,19 @@ export const globalStyles= StyleSheet.create({
     paragraph: {
         marginVertical:8,
         lineHeight:20,
+    },
+    button: {
+        width: 200,
+        margin:'auto',
+        
+       
+    },
+    buttonText: {
+        textAlign: 'center',
+        textTransform: 'uppercase',
+        fontFamily:'roboto-bold',
+        color: '#fff',
     }
+
 
 });
