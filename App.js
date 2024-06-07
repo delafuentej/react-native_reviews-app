@@ -41,7 +41,7 @@ export default function App() {
   if(!fontsLoaded){
     return null;
   }else{
-    return (<Home />)
+    return (<Home />);
   }
  
 }

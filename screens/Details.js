@@ -1,15 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {  Text, View } from 'react-native';
+import { globalStyles } from '../styles/global';
 
 export default function Details(){
     return(
-        <View>
-            <Text>Details</Text>
+        <View style={globalStyles.container}>
+            <Text style={globalStyles.title}>Details</Text>
         </View>
     )
 }
-
-const styles= StyleSheet.create({
-
-});
 
