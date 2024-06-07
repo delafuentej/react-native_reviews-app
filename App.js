@@ -1,7 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import * as Font from 'expo-font';
 import  * as SplashScreen from 'expo-splash-screen';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from '@react-navigation/stack';
+import { enableScreens } from 'react-native-screens';
+
 import Home from './screens/home';
+import Details from './screens/details';
+import About from './screens/about';
+
+//to improve performance
+enableScreens();
+
+const Stack= createStackNavigator();
 
 
 //to prevent the splash-screen from auto-hiding
@@ -41,7 +52,16 @@ export default function App() {
   if(!fontsLoaded){
     return null;
   }else{
-    return (<Home />);
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen name="Home" component={Home}/>
+          <Stack.Screen name="Details" component={Details} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    
+  )
+    ;
   }
  
 }

@@ -10,7 +10,5 @@ export default function About(){
     )
 }
 
-const styles= StyleSheet.create({
 
-});
 
