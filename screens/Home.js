@@ -7,12 +7,12 @@ import uuid4 from 'uuid4';
 
 export default function Home({navigation}){
     const [reviews, setReviews] = useState([
-        {title: 'God of War Ragnarök', rating: 5, body:'Absolutely the best game in the video game industry right now', key: uuid4(), img : './assets/img/gowr.png'},
-        {title: 'Gran Turismo 7', rating: 3.5, body:'Sufficient as a racing game, it is just not up to scratch.', key: uuid4(), img : './assets/img/gt7.png'},
-        {title: 'Final Fantasy VII', rating: 4.9, body:'This game is simply a masterpiece.', key: uuid4(),  img : './assets/img/ff7.png'},
-        {title: 'Red Dead Redemption 2', rating: 4, body:'Beautifully designed, eventful and bug-free open world. The basic principle is likeable, but good. ', key: uuid4(),  img : './assets/img/rdr2.png'},
-        {title: 'DOOM Eternal', rating: 2, body:'Just pure filth! Opponents are impossible to defeat after a certain time.', key: uuid4(),  img : './assets/img/de.png'},
-        {title: 'The Last of Us Part II', rating: 4.3, body:'It is rare that a sequel comes close to the first part, if not better! ', key: uuid4(),  img : './assets/img/tlou2.png'},
+        {title: 'God of War Ragnarök', rating: 5, body:'Absolutely the best game in the video game industry right now', key: uuid4(), img : require('../assets/img/gowr.png')},
+        {title: 'Gran Turismo 7', rating: 3.5, body:'Sufficient as a racing game, it is just not up to scratch.', key: uuid4(), img : require('../assets/img/gt7.jpg')},
+        {title: 'Final Fantasy VII', rating: 4.9, body:'This game is simply a masterpiece.', key: uuid4(),  img : require('../assets/img/ff7.png')},
+        {title: 'Red Dead Redemption 2', rating: 4, body:'Beautifully designed, eventful and bug-free open world. The basic principle is likeable, but good. ', key: uuid4(),  img : require('../assets/img/rdr2.png')},
+        {title: 'DOOM Eternal', rating: 2, body:'Just pure filth! Opponents are impossible to defeat after a certain time.', key: uuid4(),  img : require('../assets/img/de.png')},
+        {title: 'The Last of Us Part II', rating: 4.3, body:'It is rare that a sequel comes close to the first part, if not better! ', key: uuid4(),  img : require('../assets/img/tlou2.png')},
     ])
 
     const pressHandler=()=>{
