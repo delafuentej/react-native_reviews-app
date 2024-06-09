@@ -14,7 +14,8 @@ export const globalStyles= StyleSheet.create({
     title:{
         fontFamily:'roboto-black',
         fontSize:18,
-        color:'turquoise',
+        backgroundColor: '#69a',
+        color:'white',
         
     },
     paragraph: {

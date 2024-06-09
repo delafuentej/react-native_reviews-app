@@ -1,6 +1,7 @@
 import React from 'react';
 import {  Text, View, Pressable } from 'react-native';
 import { globalStyles } from '../styles/global';
+import Card from '../shared/card';
 
 export default function Details({navigation, route}){
 
@@ -12,9 +13,12 @@ export default function Details({navigation, route}){
     }
     return(
         <View style={globalStyles.container}>
-            <Text style={globalStyles.title}>{title}</Text>
-            <Text style={globalStyles.reviewBodyText}>{body}</Text>
-            <Text style={globalStyles.reviewRating}>{rating}</Text>
+            <Card>
+                <Text style={globalStyles.title}>{title}</Text>
+                <Text style={globalStyles.reviewBodyText}>{body}</Text>
+                <Text style={globalStyles.reviewRating}>{rating}</Text>
+            </Card>
+           
             <Pressable 
                 onPress={pressHandler}
                 style={({pressed})=>[

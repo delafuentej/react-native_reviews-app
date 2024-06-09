@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Text, View, Pressable, FlatList, TouchableOpacity} from 'react-native';
 import { globalStyles } from '../styles/global';
+import Card from '../shared/card';
 import uuid4 from 'uuid4';
 
 
@@ -25,13 +26,14 @@ export default function Home({navigation}){
                 <TouchableOpacity
                     onPress={()=> navigation.navigate('Details', item)}
                 >
-                    <Text style={globalStyles.title}>{item.title}</Text>
+                    {/* <Text style={globalStyles.title}>{item.title}</Text> */}
+                    <Card>
+                        <Text style={globalStyles.title}>{item.title}</Text>
+                    </Card>
                 </TouchableOpacity>
             )}
           
           />
-
-
             <Pressable 
                 onPress={pressHandler}
                 style={({pressed})=>[

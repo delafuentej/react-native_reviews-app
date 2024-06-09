@@ -3,18 +3,16 @@ import React, {useState, useEffect} from 'react';
 import * as Font from 'expo-font';
 import  * as SplashScreen from 'expo-splash-screen';
 import { NavigationContainer } from "@react-navigation/native";
+// import { DrawerNavigator } from './routes/drawerNavigator';
+import { enableScreens } from 'react-native-screens';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { enableScreens } from 'react-native-screens';
-import 'react-native-gesture-handler';
-
 
 import Home from './screens/home';
 import Details from './screens/details';
 import About from './screens/about';
-import HeaderCustom from './shared/headerCustom';
-
-
+import { HeaderCustom } from './shared/headerCustom';
+import 'react-native-gesture-handler';
 
 
 //to improve performance
@@ -32,36 +30,40 @@ const getFonts =()=> Font.loadAsync({
  
   });
 
+
+// HomeNavigator
 const HomeStack= createStackNavigator();
 
+function HomeNavigator(){
+    return(
+      <HomeStack.Navigator  initialRouteName="Home">
+            <HomeStack.Screen  
+              name="GameZone" 
+              component={Home}
+               options={{
+                headerTitle: (props) => <HeaderCustom title='GameZone' navigation={navigation}/>
+               }}
+              />
+            <HomeStack.Screen  
+              name="Details" 
+              component={Details} 
+               options={{
+                 header: () => <HeaderCustom title='Details' navigation={navigation}/>
+               }}
+              />
+      </HomeStack.Navigator>
+    )
+  }
 
-const HomeStackScreen=()=>{
-  return(
-    <HomeStack.Navigator  initialRouteName="Home">
-          <HomeStack.Screen  
-            name="GameZone" 
-            component={Home}
-            //  options={{
-            //    header: (props) => <HeaderCustom {...props} />
-            //  }}
-            />
-          <HomeStack.Screen  
-            name="Details" 
-            component={Details} 
-            // options={{
-            //   header: () => <HeaderCustom />
-            // }}
-            />
-    </HomeStack.Navigator>
+// DrawerNavigator
 
-  )
-}
 const Drawer = createDrawerNavigator();
 
-const DrawerNavigator=()=>{
+function DrawerNavigator(){
   return(
     <Drawer.Navigator 
       initialRouteName='HomeStack'
+      // options={{ header: () => <HeaderCustom />}}
       screenOptions={{
                 drawerStyle: {
                   marginTop:60,
@@ -79,7 +81,7 @@ const DrawerNavigator=()=>{
                 },
             }}
       >
-      <Drawer.Screen name='Home' component={HomeStackScreen} />
+      <Drawer.Screen name='Home' component={HomeNavigator} />
       <Drawer.Screen name='About' component={About} />
     </Drawer.Navigator>
   )

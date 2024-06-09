@@ -2,17 +2,18 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; 
 
-export const HeaderCustom=()=>{
+export const HeaderCustom=({title, navigation})=>{
+   
 
     const openMenu= ()=>{
-        // navigation.openMenu()
+        navigation.openMenu();
     }
     return(
         <View style={styles.header}>
             {/* icon */}
             <MaterialIcons style={styles.icon} name='menu'  onPress={openMenu}/>
             <View>
-                <Text style={styles.headerText}></Text>
+                <Text style={styles.headerText}>{title}</Text>
             </View>
         </View>
     )
