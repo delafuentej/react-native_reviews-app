@@ -36,7 +36,7 @@ export default function Details({navigation, route}){
             <Pressable 
                 onPress={pressHandler}
                 style={({pressed})=>[
-                    {backgroundColor: pressed ? '#69a' : '#5dc',
+                    {backgroundColor: pressed ? '#5dc' : '#69a',
                     padding:10,
                     borderRadius:10,
                 },

@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
-import { Text, View, Pressable, FlatList, TouchableOpacity, ImageBackground} from 'react-native';
+import { Text,StyleSheet, View, Pressable, FlatList, TouchableOpacity, ImageBackground, Modal} from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons'; 
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import uuid4 from 'uuid4';
 
 
+
 export default function Home({navigation}){
+    const [modalOpen, setModalOpen] = useState(false);
     const [reviews, setReviews] = useState([
         {title: 'God of War Ragnarök', rating: 5, body:'Absolutely the best game in the video game industry right now', key: uuid4(), img : require('../assets/img/gowr.png')},
         {title: 'Gran Turismo 7', rating: 3.5, body:'Sufficient as a racing game, it is just not up to scratch.', key: uuid4(), img : require('../assets/img/gt7.jpg')},
@@ -20,6 +23,27 @@ export default function Home({navigation}){
     }
     return(
         <ImageBackground source={require('../assets/img/bgImage2.png')} style={globalStyles.container}>
+            <Modal visible={modalOpen} animationType='fade'>
+                <View style={styles.modalContent}>
+                    <MaterialIcons 
+                        style={{...styles.modalToggle, ...styles.modalClose}}
+                        name='close' 
+                        size={24} 
+                        onPress={()=> setModalOpen(false)}
+                />
+
+                    <Text>Hello from the modal</Text>
+
+                </View>
+            </Modal>
+
+            <MaterialIcons 
+                style={styles.modalToggle}
+                name='add' 
+                size={24} 
+                onPress={()=> setModalOpen(true)}
+                />
+
           <FlatList
             data={reviews}
             renderItem={({item})=>(
@@ -37,7 +61,7 @@ export default function Home({navigation}){
             <Pressable 
                 onPress={pressHandler}
                 style={({pressed})=>[
-                    {backgroundColor: pressed ? '#69a' : '#5dc',
+                    {backgroundColor: pressed ?  '#5dc' : '#69a',
                     padding:10,
                     borderRadius:10,
                 },
@@ -49,3 +73,22 @@ export default function Home({navigation}){
     )
 }
 
+const styles= StyleSheet.create({
+    modalToggle: {
+        marginBottom:10,
+        borderWidth:1,
+        borderColor: 'gray',
+        padding: 10,
+        borderRadius:10,
+        alignSelf: 'center',
+        backgroundColor:'#69a',
+        color: 'white',
+    },
+    modalClose: {
+        marginTop:20,
+        marginBottom:0,
+    },
+    modalContent: {
+        flex:1,
+    }
+})

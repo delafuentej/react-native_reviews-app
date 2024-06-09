@@ -26,6 +26,7 @@ export const globalStyles= StyleSheet.create({
         width: 200,
         margin:'auto',
         
+        
        
     },
     buttonText: {
