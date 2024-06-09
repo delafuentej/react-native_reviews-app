@@ -809,6 +809,11 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
+"@coder-shubh/feedback-star@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@coder-shubh/feedback-star/-/feedback-star-2.0.3.tgz#921bb5fda83aca4daa6d740c42971fcb4d9646d2"
+  integrity sha512-Kcb20X3WcT2UIUE0O/lwhSCZGWPtmp3rm4QWFVCuanZ6wqixMCKTJ7e6kJvqDkTSkMHfteBfHQ+qI5uokJ5ipQ==
+
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
@@ -5449,6 +5454,16 @@ react-native-screens@^3.31.1:
   dependencies:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
+
+react-native-star@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-star/-/react-native-star-1.0.0.tgz#a19a344d17367604beadbac8d5ef79a8ed1e1625"
+  integrity sha512-BrQ6mNR70oiwGGHfG/wWOtj+Q0JFJfmpG80LGZnrWGwGffoIwMYltZY0ccl/4Ig5fn0/BHWFr+0JKeVUHmuwYg==
+
+react-native-stock-star-rating@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-stock-star-rating/-/react-native-stock-star-rating-1.0.6.tgz#b28fb5d61a9e64a7581d73d307055fb86c32836c"
+  integrity sha512-YQMGVYX03kq9cW0Of0y+fad9A1RpyM/ZOKMb2o15DfITcceLlrz5x83B6kBOl6SxM/YzdXpMvphWNZehilJ46g==
 
 react-native-web@~0.19.10:
   version "0.19.12"

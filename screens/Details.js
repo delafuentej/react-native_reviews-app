@@ -2,6 +2,7 @@ import React from 'react';
 import {  Text, View, Pressable,  StyleSheet, Image } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
+import { Rating } from 'react-native-stock-star-rating';
 
 export default function Details({navigation, route}){
 
@@ -14,12 +15,22 @@ export default function Details({navigation, route}){
     return(
         <View style={globalStyles.container}>
             <Card>
-                <View style={styles.imgContainer}>
-                    <Image  source={img} style={styles.img} resizeMode='cover'/>
+                <View style={globalStyles.imgContainer}>
+                    <Image  source={img} style={globalStyles.img} resizeMode='cover'/>
                 </View>
                 <Text style={globalStyles.title}>{title}</Text>
                 <Text style={globalStyles.reviewBodyText}>{body}</Text>
-                <Text style={globalStyles.reviewRating}>{rating}</Text>
+                <View style={globalStyles.rating}>
+                    <Text style={globalStyles.reviewRating}>GameZone rating: </Text>
+                    <Text style={globalStyles.ratingNumber}>{rating}/5</Text>
+                    <Rating
+                      stars={rating}
+                      maxStars={5}
+                      size={25}
+                    />
+                </View>
+ 
+               
             </Card>
            
             <Pressable 
@@ -38,15 +49,5 @@ export default function Details({navigation, route}){
 }
 
 const styles = StyleSheet.create({
-    imgContainer: {
-            height: 300,
-            width:'auto',
-            backgroundColor: "gray",
-    },
-    img: {
-       width:'100%',
-       height:'100%',
-       backgroundColor: "gray",
     
-    }
 })

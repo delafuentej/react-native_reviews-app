@@ -35,12 +35,36 @@ export const globalStyles= StyleSheet.create({
         color: '#fff',
     },
     reviewBodyText: {
+        fontFamily:'roboto-dark',
 
 
     },
-    reviewRating : {
+    rating : {
+        flex:1,
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center',
+        fontSize:20,
+        fontWeight: 'bold',
 
-    }
+    },
+    ratingNumber:{
+        fontSize:30,
+        fontWeight: 'bold',
+
+    },
+    imgContainer: {
+        height: 400,
+        width:'auto',
+        backgroundColor: "gray",
+        borderRadius:10,
+},
+    img: {
+        width:'100%',
+        height:'100%',
+   
+   
+}
 
 
 });
