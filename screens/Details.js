@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Text, View, Pressable,  StyleSheet, Image } from 'react-native';
+import {  Text, View, Pressable,  StyleSheet, Image, ImageBackground } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import { Rating } from 'react-native-stock-star-rating';
@@ -13,7 +13,7 @@ export default function Details({navigation, route}){
         navigation.goBack();
     }
     return(
-        <View style={globalStyles.container}>
+        <ImageBackground source={require('../assets/img/bgImage2.png')} style={globalStyles.container}>
             <Card>
                 <View style={globalStyles.imgContainer}>
                     <Image  source={img} style={globalStyles.img} resizeMode='cover'/>
@@ -44,7 +44,7 @@ export default function Details({navigation, route}){
                 ]}>
                 <Text style={globalStyles.buttonText}>Go to Home</Text>
             </Pressable>
-        </View>
+        </ImageBackground>
     )
 }
 

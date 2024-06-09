@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text, View, Pressable, FlatList, TouchableOpacity} from 'react-native';
+import { Text, View, Pressable, FlatList, TouchableOpacity, ImageBackground} from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import uuid4 from 'uuid4';
@@ -19,7 +19,7 @@ export default function Home({navigation}){
         navigation.push('Details');
     }
     return(
-        <View style={globalStyles.container}>
+        <ImageBackground source={require('../assets/img/bgImage2.png')} style={globalStyles.container}>
           <FlatList
             data={reviews}
             renderItem={({item})=>(
@@ -45,7 +45,7 @@ export default function Home({navigation}){
                 ]}>
                 <Text style={globalStyles.buttonText}>Go to Details</Text>
             </Pressable>
-        </View>
+        </ImageBackground>
     )
 }
 

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ImageBackground } from 'react-native';
 import { globalStyles } from '../styles/global';
 
 export default function About(){
     return(
-        <View style={globalStyles.container}>
+        <ImageBackground source={require('../assets/img/bgImage2.png')} style={globalStyles.container}>
             <Text style={globalStyles.title}>About</Text>
-        </View>
+        </ImageBackground>
     )
 }
 
