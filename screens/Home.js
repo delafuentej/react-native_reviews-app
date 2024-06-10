@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text,StyleSheet, View, Pressable, FlatList, TouchableOpacity, ImageBackground, Modal} from 'react-native';
+import { Text,StyleSheet, View, Pressable, FlatList,TouchableWithoutFeedback, Keyboard, ImageBackground, Modal} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
@@ -16,7 +16,7 @@ export default function Home({navigation}){
         {title: 'Final Fantasy VII', rating: 4.9, body:'This game is simply a masterpiece.', key: uuid4(),  img : require('../assets/img/ff7.png')},
         {title: 'Red Dead Redemption 2', rating: 4, body:'Beautifully designed, eventful and bug-free open world. The basic principle is likeable, but good. ', key: uuid4(),  img : require('../assets/img/rdr2.png')},
         {title: 'DOOM Eternal', rating: 2, body:'Just pure filth! Opponents are impossible to defeat after a certain time.', key: uuid4(),  img : require('../assets/img/de.png')},
-        {title: 'The Last of Us Part II', rating: 4.3, body:'It is rare that a sequel comes close to the first part, if not better! ', key: uuid4(),  img : require('../assets/img/tlou2.png')},
+        {title: 'The Last of Us Part II', rating: 4.3, body:'It is rare that a sequel comes close to the first part, if not better! ', key: uuid4(),  img: require('../assets/img/tlou2.png')},
     ]);
 
     const addReview= (review)=>{
@@ -33,6 +33,7 @@ export default function Home({navigation}){
     return(
         <ImageBackground source={require('../assets/img/bgImage2.png')} resizeMode='cover' style={globalStyles.container}>
             <Modal visible={modalOpen} animationType='fade'>
+                {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}> */}
                 <View style={styles.modalContent}>
                     <MaterialIcons 
                         style={{...styles.modalToggle, ...styles.modalClose}}
@@ -42,6 +43,7 @@ export default function Home({navigation}){
                 />
                     <Form addReview={addReview}/>
                 </View>
+                {/* </TouchableWithoutFeedback> */}
             </Modal>
 
             <MaterialIcons 
@@ -54,14 +56,14 @@ export default function Home({navigation}){
           <FlatList
             data={reviews}
             renderItem={({item})=>(
-                <TouchableOpacity
+                <Pressable
                     onPress={()=> navigation.navigate('Details', item)}
                 >
                     {/* <Text style={globalStyles.title}>{item.title}</Text> */}
                     <Card>
                         <Text style={globalStyles.title}>{item.title}</Text>
                     </Card>
-                </TouchableOpacity>
+                </Pressable>
             )}
           
           />
