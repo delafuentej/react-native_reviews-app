@@ -17,7 +17,15 @@ export default function Home({navigation}){
         {title: 'Red Dead Redemption 2', rating: 4, body:'Beautifully designed, eventful and bug-free open world. The basic principle is likeable, but good. ', key: uuid4(),  img : require('../assets/img/rdr2.png')},
         {title: 'DOOM Eternal', rating: 2, body:'Just pure filth! Opponents are impossible to defeat after a certain time.', key: uuid4(),  img : require('../assets/img/de.png')},
         {title: 'The Last of Us Part II', rating: 4.3, body:'It is rare that a sequel comes close to the first part, if not better! ', key: uuid4(),  img : require('../assets/img/tlou2.png')},
-    ])
+    ]);
+
+    const addReview= (review)=>{
+        review.key= uuid4();
+        setReviews((currentReviews)=>{
+            return [ review, ...currentReviews];
+        });
+        setModalOpen(false);
+    }
 
     const pressHandler=()=>{
         navigation.push('Details');
@@ -32,7 +40,7 @@ export default function Home({navigation}){
                         size={24} 
                         onPress={()=> setModalOpen(false)}
                 />
-                    <Form />
+                    <Form addReview={addReview}/>
                 </View>
             </Modal>
 

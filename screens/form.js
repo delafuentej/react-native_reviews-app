@@ -3,14 +3,15 @@ import { StyleSheet,Text, TextInput, View, Pressable, ImageBackground} from 'rea
 import { Formik } from 'formik';
 import { globalStyles } from '../styles/global';
 
-export default function Form(){
+export default function Form({addReview}){
 
     return(
         <ImageBackground source={require('../assets/img/bgImage2.png')} resizeMode='cover' style={globalStyles.container}>
             <Formik
                 initialValues={{title:'', body:'', rating:'', img:''}}
-                onSubmit={(values)=>{
-                    console.log(values);
+                onSubmit={(values/* , actions */)=>{
+                    // actions.resetForm();
+                   addReview(values);
                 }}
             >
                 {(props)=> (
@@ -35,7 +36,7 @@ export default function Form(){
                             placeholder='Rating (1-5)'
                             onChangeText={props.handleChange('rating')}
                             value={props.values.rating}
-                            keyboardType='numeric'
+                            inputMode='numeric'
                         />
 
                         <TextInput
