@@ -4,8 +4,7 @@ export const globalStyles= StyleSheet.create({
     container:{
         flex:1,
         padding:20,
-       
-       
+         
     },
     header: {
         backgroundColor: '#69a',
@@ -17,6 +16,7 @@ export const globalStyles= StyleSheet.create({
         fontSize:18,
         backgroundColor: '#69a',
         color:'white',
+       
         
     },
     paragraph: {
@@ -26,9 +26,7 @@ export const globalStyles= StyleSheet.create({
     button: {
         width: 200,
         margin:'auto',
-        
-        
-       
+
     },
     buttonText: {
         textAlign: 'center',
@@ -38,6 +36,8 @@ export const globalStyles= StyleSheet.create({
     },
     reviewBodyText: {
         fontFamily:'roboto-dark',
+        marginTop:6,
+        marginBottom:6,
 
 
     },
@@ -74,11 +74,15 @@ export const globalStyles= StyleSheet.create({
         color: '#9acd32',
         marginBottom:10,
         fontFamily:'roboto-dark',
+        backgroundColor:'rgba(255,255,255,0.3)',
+        
     },
     errorTextInput : {
         color: 'red',
         fontFamily:'roboto-bold',
         fontSize: 15,
+        marginTop:6,
+        marginBottom:10,
     }
 
 

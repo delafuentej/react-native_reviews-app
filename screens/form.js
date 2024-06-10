@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { StyleSheet,Text, TextInput, View, Pressable, ImageBackground} from 'react-native';
+import React from 'react';
+import { Text, TextInput, View,  ImageBackground} from 'react-native';
 import ButtonCustom from '../shared/buttonCustom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -7,7 +7,7 @@ import { globalStyles } from '../styles/global';
 
 const ReviewSchema = Yup.object({
     title: Yup.string()
-        .min(3, 'Too Short')
+        .min(4, 'Too Short')
         .max(30, 'Too Long!')
         .required('Required'),
     body: Yup.string()
@@ -41,7 +41,7 @@ export default function Form({addReview}){
                     <View>
                         <TextInput
                             style={globalStyles.input}
-                            placeholder='Title'
+                            placeholder="Title´s game"
                             onChangeText={props.handleChange('title')}
                             value={props.values.title}
                             onBlur={props.handleBlur('title')}
@@ -49,9 +49,10 @@ export default function Form({addReview}){
                         <Text style={globalStyles.errorTextInput}>{ props.touched.title && props.errors.title}</Text>
 
                         <TextInput
-                            multiline
+                            multiline 
+                            minHeight={80}
                             style={globalStyles.input}
-                            placeholder='Body'
+                            placeholder='Please introduce your review'
                             onChangeText={props.handleChange('body')}
                             value={props.values.body}
                             onBlur={props.handleBlur('body')}
@@ -70,7 +71,7 @@ export default function Form({addReview}){
 
                         <TextInput
                             style={globalStyles.input}
-                            placeholder='Img'
+                            placeholder='Url image is required:.jpeg, .jpg, .gif, .png'
                             onChangeText={props.handleChange('img')}
                             onBlur={props.handleBlur('img')}
                             value={props.values.img}

@@ -1,17 +1,14 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons'; 
 
-export const HeaderCustom=({title, navigation})=>{
+export const HeaderCustom=({title})=>{
    
 
-    const openMenu= ()=>{
-        navigation.openMenu();
-    }
     return(
         <View style={styles.header}>
             {/* icon */}
-            <MaterialIcons style={styles.icon} name='menu'  onPress={openMenu}/>
+            <Entypo style={styles.icon} name='game-controller'/>
             <View>
                 <Text style={styles.headerText}>{title}</Text>
             </View>
@@ -38,6 +35,7 @@ const styles= StyleSheet.create({
     icon: {
         position: 'absolute',
         left:16,
-        size:28,
+        fontSize:25,
+        color:'white',
     }
 });

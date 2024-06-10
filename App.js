@@ -41,7 +41,7 @@ function HomeNavigator(){
               name="GameZone" 
               component={Home}
                options={{
-                headerTitle: (props) => <HeaderCustom title='GameZone' navigation={navigation}/>
+                header: () => <HeaderCustom title='GameZone' navigation={navigation}/>
                }}
               />
             <HomeStack.Screen  

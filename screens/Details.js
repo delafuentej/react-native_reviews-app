@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Text, View, Pressable,  StyleSheet, Image, ImageBackground } from 'react-native';
+import {  Text, View, Image, ImageBackground } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import { Rating } from 'react-native-stock-star-rating';
@@ -52,7 +52,3 @@ export default function Details({navigation, route}){
         </ImageBackground>
     )
 }
-
-const styles = StyleSheet.create({
-    
-})
