@@ -22,7 +22,7 @@ export default function Home({navigation}){
         navigation.push('Details');
     }
     return(
-        <ImageBackground source={require('../assets/img/bgImage2.png')} style={globalStyles.container}>
+        <ImageBackground source={require('../assets/img/bgImage2.png')} resizeMode='cover' style={globalStyles.container}>
             <Modal visible={modalOpen} animationType='fade'>
                 <View style={styles.modalContent}>
                     <MaterialIcons 

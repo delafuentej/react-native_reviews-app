@@ -13,7 +13,7 @@ export default function Details({navigation, route}){
         navigation.goBack();
     }
     return(
-        <ImageBackground source={require('../assets/img/bgImage2.png')} style={globalStyles.container}>
+        <ImageBackground source={require('../assets/img/bgImage2.png')} resizeMode='cover' style={globalStyles.container}>
             <Card>
                 <View style={globalStyles.imgContainer}>
                     <Image  source={img} style={globalStyles.img} resizeMode='cover'/>
