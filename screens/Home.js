@@ -3,6 +3,7 @@ import { Text,StyleSheet, View, Pressable, FlatList, TouchableOpacity, ImageBack
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
+import Form from './form';
 import uuid4 from 'uuid4';
 
 
@@ -31,9 +32,7 @@ export default function Home({navigation}){
                         size={24} 
                         onPress={()=> setModalOpen(false)}
                 />
-
-                    <Text>Hello from the modal</Text>
-
+                    <Form />
                 </View>
             </Modal>
 

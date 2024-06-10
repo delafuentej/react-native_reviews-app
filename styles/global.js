@@ -5,6 +5,7 @@ export const globalStyles= StyleSheet.create({
         flex:1,
         padding:20,
        
+       
     },
     header: {
         backgroundColor: '#69a',
@@ -59,13 +60,22 @@ export const globalStyles= StyleSheet.create({
         width:'auto',
         backgroundColor: "gray",
         borderRadius:10,
-},
+    },
     img: {
         width:'100%',
-        height:'100%',
-   
-   
-}
+        height:'100%', 
+    },
+    input: {
+        borderWith:2,
+        borderColor: 'gray',
+        padding: 10,
+        fontSize: 18,
+        borderRadius: 7,
+        color: '#9acd32',
+        marginBottom:10,
+        fontFamily:'roboto-dark',
+    }
+
 
 
 });
