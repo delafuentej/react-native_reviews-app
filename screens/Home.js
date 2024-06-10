@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Text,StyleSheet, View, Pressable, FlatList,TouchableWithoutFeedback, Keyboard, ImageBackground, Modal} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { globalStyles } from '../styles/global';
+import ButtonCustom from '../shared/buttonCustom';
 import Card from '../shared/card';
 import Form from './form';
 import uuid4 from 'uuid4';
@@ -67,7 +68,11 @@ export default function Home({navigation}){
             )}
           
           />
-            <Pressable 
+          <ButtonCustom 
+            text='Go to Details'
+            onPress={pressHandler}
+          />
+            {/* <Pressable 
                 onPress={pressHandler}
                 style={({pressed})=>[
                     {backgroundColor: pressed ?  '#5dc' : '#69a',
@@ -77,7 +82,7 @@ export default function Home({navigation}){
                 globalStyles.button
                 ]}>
                 <Text style={globalStyles.buttonText}>Go to Details</Text>
-            </Pressable>
+            </Pressable> */}
         </ImageBackground>
     )
 }

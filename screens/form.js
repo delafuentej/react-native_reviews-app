@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { StyleSheet,Text, TextInput, View, Pressable, ImageBackground} from 'react-native';
+import ButtonCustom from '../shared/buttonCustom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { globalStyles } from '../styles/global';
@@ -76,7 +77,15 @@ export default function Form({addReview}){
                         />
                          <Text style={globalStyles.errorTextInput}>{props.touched.img && props.errors.img}</Text>
 
-                         <Pressable 
+
+                        <ButtonCustom
+                            text='Submit'
+                            onPress={props.handleSubmit}
+
+                        />
+
+                        
+                         {/* <Pressable 
                             onPress={props.handleSubmit}
                             style={({pressed})=>[
                                 {backgroundColor: pressed ?  '#5dc' : '#69a',
@@ -86,7 +95,7 @@ export default function Form({addReview}){
                                 globalStyles.button
                                 ]}>
                             <Text style={globalStyles.buttonText}>Submit</Text>
-                        </Pressable>
+                        </Pressable> */}
 
                     </View>
                 )}

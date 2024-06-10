@@ -3,6 +3,7 @@ import {  Text, View, Pressable,  StyleSheet, Image, ImageBackground } from 'rea
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import { Rating } from 'react-native-stock-star-rating';
+import ButtonCustom from '../shared/buttonCustom';
 
 export default function Details({navigation, route}){
 
@@ -33,7 +34,11 @@ export default function Details({navigation, route}){
                
             </Card>
            
-            <Pressable 
+           <ButtonCustom 
+            onPress={pressHandler}
+            text='Go to Home'
+           />
+            {/* <Pressable 
                 onPress={pressHandler}
                 style={({pressed})=>[
                     {backgroundColor: pressed ? '#5dc' : '#69a',
@@ -43,7 +48,7 @@ export default function Details({navigation, route}){
                 globalStyles.button
                 ]}>
                 <Text style={globalStyles.buttonText}>Go to Home</Text>
-            </Pressable>
+            </Pressable> */}
         </ImageBackground>
     )
 }
