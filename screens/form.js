@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { globalStyles } from '../styles/global';
 
-const reviewSchema = Yup.object({
+const ReviewSchema = Yup.object({
     title: Yup.string()
         .min(3, 'Too Short')
         .max(30, 'Too Long!')
@@ -30,7 +30,7 @@ export default function Form({addReview}){
         <ImageBackground source={require('../assets/img/bgImage2.png')} resizeMode='cover' style={globalStyles.container}>
             <Formik
                 initialValues={{title:'', body:'', rating:'', img:''}}
-                validationSchema={reviewSchema}
+                validationSchema={ReviewSchema}
                 onSubmit={(values/* , actions */)=>{
                     // actions.resetForm();
                    addReview(values);
@@ -43,7 +43,9 @@ export default function Form({addReview}){
                             placeholder='Title'
                             onChangeText={props.handleChange('title')}
                             value={props.values.title}
+                            onBlur={props.handleBlur('title')}
                         />
+                        <Text style={globalStyles.errorTextInput}>{ props.touched.title && props.errors.title}</Text>
 
                         <TextInput
                             multiline
@@ -51,7 +53,9 @@ export default function Form({addReview}){
                             placeholder='Body'
                             onChangeText={props.handleChange('body')}
                             value={props.values.body}
+                            onBlur={props.handleBlur('body')}
                         />
+                         <Text style={globalStyles.errorTextInput}>{props.touched.body && props.errors.body}</Text>
 
                         <TextInput
                             style={globalStyles.input}
@@ -59,14 +63,19 @@ export default function Form({addReview}){
                             onChangeText={props.handleChange('rating')}
                             value={props.values.rating}
                             inputMode='numeric'
+                            onBlur={props.handleBlur('rating')}
                         />
+                         <Text style={globalStyles.errorTextInput}>{props.touched.rating && props.errors.rating}</Text>
 
                         <TextInput
                             style={globalStyles.input}
                             placeholder='Img'
                             onChangeText={props.handleChange('img')}
+                            onBlur={props.handleBlur('img')}
                             value={props.values.img}
                         />
+                         <Text style={globalStyles.errorTextInput}>{props.touched.img && props.errors.img}</Text>
+
                          <Pressable 
                             onPress={props.handleSubmit}
                             style={({pressed})=>[

@@ -74,6 +74,11 @@ export const globalStyles= StyleSheet.create({
         color: '#9acd32',
         marginBottom:10,
         fontFamily:'roboto-dark',
+    },
+    errorTextInput : {
+        color: 'red',
+        fontFamily:'roboto-bold',
+        fontSize: 15,
     }
 
 
